@@ -1,0 +1,167 @@
+.Navigation {
+    // background: #fabeeb; 
+    background: linear-gradient(30deg, #FF8A00, #DA1B60);
+    // height: 100px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+
+    nav {
+        height: 100%;
+        margin: auto;
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+
+        &>div.Logo {
+            flex: 1;
+            display: flex;
+            align-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            font-size: 29px;
+            padding: 30px 0px;
+
+            &>div {
+                &:hover {
+                    color: white;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        &>div.Navs {
+            &>ul {
+                height: 100%;
+                margin: 0px;
+                padding: 0px;
+                display: flex;
+
+                &>li {
+                    height: 100%;
+                    list-style: none;
+                    width: 150px;
+                    align-items: center;
+
+                    &>a {
+                        display: block;
+                        height: 100%;
+                        padding: 40px 30px;
+                        text-align: center;
+                        text-decoration: none;
+                        color: black;
+                        box-sizing: border-box;
+                        border-bottom: 3px solid transparent;
+
+                        &:hover {
+                            background: #b7b7c5;
+                            border-bottom: 3px solid black;
+                        }
+                    }
+
+                    &:hover .Dropdown {
+                        display: block;
+                    }
+
+                    & .Dropdown {
+                        display: none;
+                        position: absolute;
+                        background: linear-gradient(30deg, #FF8A00, #DA1B60);
+                        width: 150px;
+                        padding: 10px 10px;
+
+                        box-shadow: 10px 2px 20px #5c5c5c;
+
+                        & div {
+                            background: white;
+                        }
+
+                        & ul {
+                            display: flex;
+                            flex-direction: column;
+
+                            & li {
+                                width: auto;
+
+                                & a {
+                                    color: #DA1B60;
+                                    box-sizing: content-box;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 1000px) {
+
+
+
+    .Navigation {
+        .Hamburger {
+            position: fixed;
+            color: green;
+            top: 12px;
+            right: 10px;
+            z-index: 100;
+            cursor: pointer;
+            background: yellow;
+
+            &>div {
+                background: white;
+                height: 4px;
+                width: 50px;
+                border: 10px solid black;
+            }
+
+        }
+
+        nav {
+            width: 100%;
+
+            &>div.Logo {
+                padding: 30px 30px;
+
+                &>div {
+                    &:hover {
+                        color: white;
+                        cursor: pointer;
+                    }
+                }
+
+            }
+
+            &.Show div.Navs {
+                background: blue;
+                clip-path: circle(2000px at 110% -20%);
+            }
+
+
+
+            &>div.Navs {
+                background: green;
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                z-index: 2;
+                transition: all 2s ease;
+                clip-path: circle(1px at 101% -1%);
+
+                &>ul {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    & li {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
